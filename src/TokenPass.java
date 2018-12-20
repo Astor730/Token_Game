@@ -7,7 +7,7 @@ public class TokenPass
         board = new int[playerCount];
         for (int i = 0; i < board.length; i++)
         {
-            int a = (int) Math.random()* 10 +1;
+            int a = (int) (Math.random()* 10) +1;
             board[i] = a;
         }
         currentPlayer = (int) Math.random()*playerCount;
@@ -16,9 +16,10 @@ public class TokenPass
     {
         int Tokens = board[currentPlayer];
         board[currentPlayer] = 0;
+        int position = currentPlayer;
         while(Tokens>0)
         {
-            int position = (currentPlayer+1) % board.length;
+            position = (position+1) % board.length;
             board[position]++;
             Tokens--;
         }
